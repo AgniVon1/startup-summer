@@ -1,10 +1,9 @@
 import React  from 'react';
-import {vacanciesApi} from "../../features/services/vacanciesApi";
-import {cataloguesApi} from "../../features/services/cataloguesApi";
+import {vacanciesApiRTK} from "../../common/services/vacanciesApiRTK";
 
 
 const VacanciesContainer = () => {
-  const {data,isLoading} = vacanciesApi.useGetVacanciesQuery({payment_from:10000, payment_to:100000,page: 0, count:3})
+  const {data,isLoading} = vacanciesApiRTK.useGetVacanciesQuery({payment_from:10000, payment_to:100000,page: 0, count:3})
 
   return (
     <div>

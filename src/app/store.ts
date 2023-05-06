@@ -1,20 +1,21 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {appReducer} from "./appSlice";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
-import {vacanciesApi} from "../features/services/vacanciesApi";
 import {setupListeners} from "@reduxjs/toolkit/query";
-import {cataloguesApi} from "../features/services/cataloguesApi";
+import {vacanciesApiRTK} from "../common/services/vacanciesApiRTK";
+
 
 const RootReducer = combineReducers({
-  //app: appReducer,
-  [vacanciesApi.reducerPath]: vacanciesApi.reducer,
-  [cataloguesApi.reducerPath]: cataloguesApi.reducer
+  app: appReducer,
+  [vacanciesApiRTK.reducerPath]: vacanciesApiRTK.reducer,
+//  [cataloguesApiRTK.reducerPath]: cataloguesApiRTK.reducer
 })
 export const store = configureStore(
   {
     reducer: RootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(vacanciesApi.middleware).concat(cataloguesApi.middleware)
+      getDefaultMiddleware().concat(vacanciesApiRTK.middleware)
+        //.concat(cataloguesApiRTK.middleware)
   }
 )
 setupListeners(store.dispatch)

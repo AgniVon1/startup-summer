@@ -1,8 +1,7 @@
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {baseQuery} from "./baseQuery";
 
-
-export const vacanciesApi = createApi({
+export const vacanciesApiRTK = createApi({
   reducerPath: 'vacanciesApi',
   baseQuery,
   endpoints: (builder) => ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import VacanciesContainer from "../common/vacancies/vacanciesContainer";
+import VacanciesContainer from "../features/vacancies/vacanciesContainer";
 
 const App = () => (
   <>
