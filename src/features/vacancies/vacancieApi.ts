@@ -1,4 +1,4 @@
-import {instance} from "../../common/api/instance";
+import {instance} from "../../shared/API/instance";
 
 export const vacanciesApi = {
   getVacancies(arg: unknown) {

@@ -1,5 +1,5 @@
 import React  from 'react';
-import {vacanciesApiRTK} from "../../common/services/vacanciesApiRTK";
+import {vacanciesApiRTK} from "../../shared/API/services/vacanciesApiRTK";
 
 
 const VacanciesContainer = () => {

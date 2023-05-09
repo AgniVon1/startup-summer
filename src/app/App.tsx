@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
 import VacanciesContainer from "../features/vacancies/vacanciesContainer";
+import {withProviders} from "./providers";
 
 const App = () => (
   <>
@@ -8,5 +8,4 @@ const App = () => (
   </>
   );
 
-
-export default App;
+export default withProviders(App);
