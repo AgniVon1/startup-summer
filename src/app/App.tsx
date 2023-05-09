@@ -1,10 +1,10 @@
 import React from 'react';
-import VacanciesContainer from "../features/vacancies/vacanciesContainer";
 import {withProviders} from "./providers";
+import {SearchPage} from "../pages/searchJob/SearchPage";
 
 const App = () => (
   <>
-    <VacanciesContainer/>
+    <SearchPage/>
   </>
   );
 

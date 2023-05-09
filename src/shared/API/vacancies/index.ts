@@ -1,0 +1,1 @@
+export * as vacancies from "./vacancies";
