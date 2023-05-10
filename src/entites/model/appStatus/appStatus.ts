@@ -1,24 +1,26 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {log} from "util";
 
 type StatusAppType = 'idle' | 'failed' | 'succeeded' | 'loading'
 
 type AppInitialState = {
   isInit: boolean
-  isLoading: false,
+  isLoading:boolean,
   status: StatusAppType,
   error: string | null,
   infoMessage: string | null,
 }
 
 const initialState: AppInitialState = {
-  isInit: false,
+  isInit: true,
   isLoading: false,
   status: 'idle',
   error: null,
   infoMessage: null,
 }
-const appSlice = createSlice({
-  name: 'app',
+
+const appStatus = createSlice({
+  name: 'appStatus',
   initialState,
   reducers: {
     initialization: (state, action: PayloadAction<{ isInit: boolean }>) => {
@@ -31,6 +33,7 @@ const appSlice = createSlice({
         action => action.type.endsWith('/pending'),
         state => {
           state.status = 'loading'
+          state.isLoading = true
         }
       )
       .addMatcher(
@@ -45,15 +48,17 @@ const appSlice = createSlice({
             state.error = error.message ? error.message : 'Some error occurred'
           }
           state.status = 'failed'
+          state.isLoading = false
         }
       )
       .addMatcher(
         action => action.type.endsWith('/fulfilled'),
         state => {
           state.status = 'succeeded'
+          state.isLoading = false
         }
       )
   }
 
 })
-export const {reducer: appReducer, actions: appActions} = appSlice
+export const {reducer: appStatusReducer, actions: appStatusActions} = appStatus

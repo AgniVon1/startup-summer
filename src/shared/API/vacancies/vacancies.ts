@@ -17,5 +17,6 @@ export type VacanciesResponse = {
   objects:Vacancy[],
   total:number,
 };
-export const getVacanciesList = (params?: GetVacanciesListParams):AxiosPromise<VacanciesResponse> => instance.get(BASE_URL,{params});
+export const getVacanciesList = (params?: GetVacanciesListParams):AxiosPromise<VacanciesResponse> =>
+  instance.get(BASE_URL,{params});
 
