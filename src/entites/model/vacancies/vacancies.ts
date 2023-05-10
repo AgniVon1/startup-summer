@@ -19,7 +19,7 @@ export const initialState: {
   queryConfig:{}
 };
 
-const VACANCY_LIST_KEY = "vacancy";
+const VACANCY_LIST_KEY = "vacancies";
 
 const vacanciesModel = createSlice({
   name: VACANCY_LIST_KEY,

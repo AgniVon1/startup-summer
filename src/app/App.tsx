@@ -1,11 +1,9 @@
 import React from 'react';
 import {withProviders} from "./providers";
-import {SearchPage} from "../pages/searchJob/SearchPage";
+import {Routing} from "../pages/Routing";
 
 const App = () => (
-  <>
-    <SearchPage/>
-  </>
-  );
+  <Routing/>
+);
 
 export default withProviders(App);

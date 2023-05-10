@@ -4,10 +4,12 @@ import {vacanciesApiRTK} from "../../shared/utils/services/vacanciesApiRTK";
 import {appStatusReducer} from "../../entites/model/appStatus/appStatus";
 import {vacanciesReducer} from "../../entites/model/vacancies/vacancies";
 import thunkMiddleware from 'redux-thunk'
+import {vacancyReducer} from "../../entites/model/vacancy/vacancy";
 
 const RootReducer = combineReducers({
   appStatus : appStatusReducer,
   vacancies : vacanciesReducer,
+  vacancy: vacancyReducer,
   [vacanciesApiRTK.reducerPath]: vacanciesApiRTK.reducer,
 })
 export const store = configureStore(
