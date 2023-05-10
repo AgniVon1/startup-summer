@@ -2,9 +2,10 @@ import {PATHS} from "./paths";
 import {SearchPage} from "../../pages/searchJob/SearchPage";
 import {createBrowserRouter,} from "react-router-dom";
 import {AuthRedirect} from "../../pages/Routing";
-import Favarites from "../../pages/favoritesVacancies/Favarites";
-import Vacancy from "../../pages/vacancy/Vacancy";
+import {Favorites} from "../../pages/favoritesVacancies/Favarites";
+
 import App from "../App";
+import {Vacancy} from "../../pages/vacancy/Vacancy";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
           },
           {
             path: PATHS.FAVOURITES,
-            element: <Favarites/>,
+            element: <Favorites/>,
           },
           {
             path: PATHS.VACANCY,

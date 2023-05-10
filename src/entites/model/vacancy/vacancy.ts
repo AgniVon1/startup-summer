@@ -3,10 +3,21 @@ import {Vacancy} from "../../../shared/API/vacancies/models";
 import {API} from "../../../shared";
 export const initialState: {
   isLoading:boolean,
-  vacancy:Partial<Vacancy>
+  vacancy:Vacancy,
 } = {
   isLoading:true,
-  vacancy:{}
+  vacancy:{
+    favorite: false,
+    payment_from: 0,
+    payment_to: 0,
+    canEdit: false,
+    is_closed: false,
+    id: 0,
+    id_client: 0,
+    address: "",
+    profession: "",
+    firm_activity: "",
+  },
 };
 
 const VACANCY_LIST_KEY = "vacancy";

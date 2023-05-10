@@ -1,25 +1,24 @@
-import React, {useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import React from 'react';
 import {useAppSelector} from "../../app";
-import {useActions} from "../../app/store/utils/redux-utils";
-import {vacancyActions} from "../../entites/model/vacancy/vacancy";
 
-const Vacancy = () => {
-  const {id} = useParams()
-  const {getVacancy} = useActions(vacancyActions)
-  const isLoading = useAppSelector(state => state.vacancy.isLoading)
-  const vacancy = useAppSelector(state => state.vacancy.vacancy)
+import {useFeatchVacancy} from "./hooks/useFeathVacancy";
+import {JobCard} from "../../shared/UI/JobCard/JobCard";
 
-  useEffect(() => {
-    id && getVacancy({ id:+id })
-  },[getVacancy])
+export const Vacancy = () => {
+
+  const [vacancy] = useFeatchVacancy()
+  const isLoading = useAppSelector(state => state.appStatus.isLoading)
 
   return (
-    <div>
+    <>
       {isLoading && <h1> LOADING.....(skeleton)</h1>}
-      {isLoading || vacancy.profession}
-    </div>
+      {isLoading || <JobCard key = {vacancy.id}
+                              id = {vacancy.id}
+                              profession = {vacancy.profession}
+                              address = {vacancy.address}
+                              payment_from = {vacancy.payment_from}
+                              payment_to = {vacancy.payment_to}/>}
+    </>
   );
 };
 
-export default Vacancy;
